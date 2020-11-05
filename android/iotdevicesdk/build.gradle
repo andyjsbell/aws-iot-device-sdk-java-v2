@@ -5,7 +5,7 @@ apply plugin: 'com.android.library'
 Properties getGitTag() {
     def gitTag = "git describe --tags".execute().text.trim()
     def version = new Properties()
-    def versionPattern = Pattern.compile('v(\\d+).(\\d+).(\\d+)(-(.+))?')
+    def versionPattern = Pattern.compile('(\\d+).(\\d+).(\\d+)(-(.+))?')
     def matcher = versionPattern.matcher(gitTag)
     if (matcher.matches()) {
         version['major'] = matcher.group(1)
